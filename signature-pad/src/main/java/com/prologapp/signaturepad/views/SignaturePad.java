@@ -658,9 +658,10 @@ public class SignaturePad extends View {
     }
 
     private void ensureSignatureBitmap() {
-        if (mSignatureBitmap == null) {
-            mSignatureBitmap = Bitmap.createBitmap(getWidth(), getHeight(),
-                    Bitmap.Config.ARGB_8888);
+        int width = getWidth();
+        int height = getHeight();
+        if (mSignatureBitmap == null && width > 0 && height > 0) {
+            mSignatureBitmap = Bitmap.createBitmap(width, height, Bitmap.Config.ARGB_8888);
             mSignatureBitmapCanvas = new Canvas(mSignatureBitmap);
         }
     }
